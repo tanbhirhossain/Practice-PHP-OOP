@@ -1,5 +1,7 @@
 <?php 
 
+namespace HMS;
+
 class Person
 {
     public $name;

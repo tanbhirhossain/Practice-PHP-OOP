@@ -1,15 +1,21 @@
 <?php 
+namespace HMS;
+require_once 'Person.php'; // Add this line
 
-class Doctor
-{
-    //Properties
-    public $name;
-    public $specializations;
+class Doctor extends Person {
 
+    public $specialization;
 
-    //Methods
-    public function introduce(){
-        return "Hello I am doctor ". $this->name . "I am a .". $this->specializations . " experts";
+    public function __construct($n, $p, $s){
+        parent::__construct($n, $p);
+        $this->specialization = $s;
+    }
+
+    public function getDoctorInfo(){
+        return $this->getDetails() . " Specialist:" .$this->specialization;
     }
 
 }
+
+$object = new Doctor("Dr Muradologist", "+8801758578360", "Muradology");
+echo $object->getDoctorInfo();

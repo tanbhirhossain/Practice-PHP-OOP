@@ -1,26 +1,22 @@
 <?php 
 
-class Patient
-{
-    //Properties
-    public $name;
+namespace HMS; 
+require_once('Person.php');
+class Patient extends Person {
+    
     public $disease;
-
-    //Constructor
-    public function __construct($n, $d)
+    
+    public function __construct($n, $p, $d)
     {
-        $this->name = $n;
+        Parent::__construct($n, $p);
         $this->disease = $d;
     }
 
-    //Methods
-    public function introduce() {
-        return "Patient  ".$this->name." is suffering from ".$this->disease;
+    public function getPatientInfo(){
+        return $this->getDetails(). " Diseases: ". $this->disease;
     }
+    
 }
 
-$patient1 = new Patient("Rahim", "Fever");
-// $patient1->name = "Rahim";
-// $patient1->disease = "Fever";
-
-echo $patient1->introduce();
+$patient = new Patient("Murad Hossain", "10699", "Lomba");
+echo $patient->getPatientInfo();
