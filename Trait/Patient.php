@@ -1,12 +1,13 @@
 <?php 
 
 namespace Interface_;
+
 require_once('Person.php');
 require_once('PayableInterface.php');
+require_once('LoggerTrait.php');
 
 class Patient extends Person implements Payable {
-    
-
+    use Logger;
     private $disease;
     public static $totalPatients = 0;
 
@@ -27,7 +28,6 @@ class Patient extends Person implements Payable {
         return $this->disease;
     }
 
-
     public function getRole(){
         return "I am a Patient";
     }
@@ -41,8 +41,9 @@ class Patient extends Person implements Payable {
     }
 
     public function processPayment($amount){
+        
+        Logger::log("Processed Amount ". $amount." for ".$this->name);
         return "Processing payment of ".$amount." for ".$this->name;
-
     }
 
     
