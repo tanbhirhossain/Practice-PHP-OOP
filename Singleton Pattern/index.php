@@ -23,7 +23,6 @@ $hospital->addDoctor($doctor1);
 $doctor2 = new Doctor("DR MIHAD", "01554466664", "GYNEE AND OBS");
 $hospital->addDoctor($doctor2);
 
-
 $patient1 = new Patient("MR AMZAD HOSSAIN", "016664400", "ALLERGY");
 $hospital->addPatient($patient1);
 
